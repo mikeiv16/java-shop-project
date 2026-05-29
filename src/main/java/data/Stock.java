@@ -11,7 +11,7 @@ public class Stock implements Serializable {
     private final UUID uuid;
     private String name;
     private BigDecimal priceInitial;
-    private BigDecimal priceSelling; //prodajna cena spored uslovieto
+    //private BigDecimal priceSelling; //prodajna cena spored uslovieto
     private Category category;
     private LocalDate expirationDate;
     private int quantity;
@@ -25,6 +25,15 @@ public class Stock implements Serializable {
         this.expirationDate = expirationDate;
         this.quantity = quantity;
     }
+
+    //expiration date; defaulten; 2 construkotora; NULL;
+    //quantity - BigDecimal; quantity promenliva (dali da e tuk);
+    //Ili s otdelen klas za Stock i Quantity (set) ILI Map<UUID/obekt, BigDecimal quantity>
+    //priceSlling promenliva da se mahne, ima go v Interface-a
+    //EnumMap za Procent nadcenka (FOOD - 10%, nonFOOD - 15% primerno no sa razlichni za vsichki magazini)
+    //za belejkite da polzvam UUID-to
+    //prihod da izchislqvam ot belejki
+    //testove - predimno na methodi s exception, mockito, integration sushto
 
     public UUID getUuid() {
         return uuid;
