@@ -8,7 +8,7 @@ public class StockServiceImpl implements StockService {
 
 
     @Override
-    public BigDecimal priceSelling(Stock stock, BigDecimal priceIncreaseFood, BigDecimal priceIncreaseNotFood) {
+    public BigDecimal calculateSellingPrice(Stock stock, BigDecimal priceIncrease) {
         return null;
         //тест
     }

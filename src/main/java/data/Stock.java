@@ -11,25 +11,31 @@ public class Stock implements Serializable {
     private final UUID uuid;
     private String name;
     private BigDecimal priceInitial;
-    //private BigDecimal priceSelling; //prodajna cena spored uslovieto
     private Category category;
     private LocalDate expirationDate;
-    private int quantity;
+    //private int quantity;
 
-    public Stock(String name, BigDecimal priceInitial, BigDecimal priceSelling, Category category, LocalDate expirationDate, int quantity) {
+    public Stock(String name, BigDecimal priceInitial, Category category, LocalDate expirationDate) {
         this.uuid = UUID.randomUUID();
         this.name = name;
         this.priceInitial = priceInitial;
-        this.priceSelling = priceSelling;
+        //this.priceSelling = priceSelling;
         this.category = category;
         this.expirationDate = expirationDate;
-        this.quantity = quantity;
     }
 
-    //expiration date; defaulten; 2 construkotora; NULL;
-    //quantity - BigDecimal; quantity promenliva (dali da e tuk);
+    public Stock(String name, BigDecimal priceInitial, Category category) {
+        this.name = name;
+        this.priceInitial = priceInitial;
+        this.category = category;
+        this.uuid = UUID.randomUUID();
+        this.expirationDate = null;
+    }
+
+    ///expiration date; defaulten; 2 construkotora; NULL;
+    ///quantity - BigDecimal; quantity promenliva (dali da e tuk); => quantity shte go premestq v Magazin classa
     //Ili s otdelen klas za Stock i Quantity (set) ILI Map<UUID/obekt, BigDecimal quantity>
-    //priceSlling promenliva da se mahne, ima go v Interface-a
+    ///priceSlling promenliva da se mahne, ima go v Interface-a
     //EnumMap za Procent nadcenka (FOOD - 10%, nonFOOD - 15% primerno no sa razlichni za vsichki magazini)
     //za belejkite da polzvam UUID-to
     //prihod da izchislqvam ot belejki
@@ -55,13 +61,6 @@ public class Stock implements Serializable {
         this.priceInitial = priceInitial;
     }
 
-    public BigDecimal getPriceSelling() {
-        return priceSelling;
-    }
-
-    public void setPriceSelling(BigDecimal priceSelling) {
-        this.priceSelling = priceSelling;
-    }
 
     public Category getCategory() {
         return category;
@@ -78,15 +77,6 @@ public class Stock implements Serializable {
     public void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
 
     @Override
     public boolean equals(Object o) {
@@ -106,10 +96,8 @@ public class Stock implements Serializable {
                 "uuid=" + uuid +
                 ", name='" + name + '\'' +
                 ", priceInitial=" + priceInitial +
-                ", priceSelling=" + priceSelling +
                 ", category=" + category +
                 ", expirationDate=" + expirationDate +
-                ", quantity=" + quantity +
                 '}';
     }
 }
