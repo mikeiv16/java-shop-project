@@ -5,9 +5,8 @@ import data.Stock;
 import java.math.BigDecimal;
 
 public interface StockService {
-    BigDecimal calculateSellingPrice(Stock stock, BigDecimal priceIncrease);
+    BigDecimal calculateSellingPrice(Stock stock, BigDecimal priceIncreasePercentage);
     boolean isStockExpired(Stock stock);
-    BigDecimal discountSellingPriceWhenExpiring(Stock stock, int daysUntilExpiration, BigDecimal discountPercent);
-    void decreaseStockQuantity(Stock stock , int quantity);
+    BigDecimal discountSellingPriceWhenExpiring(Stock stock, int expirationThreshold, BigDecimal discountPercent, BigDecimal sellingPrice); //expirationThreshold e praga, sled koito nachislqvam namalenie; discountPercent e procenta namalenie
 
 }
