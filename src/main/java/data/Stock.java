@@ -34,7 +34,7 @@ public class Stock implements Serializable {
 
     ///expiration date; defaulten; 2 construkotora; NULL;
     ///quantity - BigDecimal; quantity promenliva (dali da e tuk); => quantity shte go premestq v Magazin classa
-    //Ili s otdelen klas za Stock i Quantity (set) ILI Map<UUID/obekt, BigDecimal quantity>
+    ///Map<UUID/obekt, BigDecimal quantity>
     ///priceSlling promenliva da se mahne, ima go v Interface-a
     //EnumMap za Procent nadcenka (FOOD - 10%, nonFOOD - 15% primerno no sa razlichni za vsichki magazini)
     //za belejkite da polzvam UUID-to

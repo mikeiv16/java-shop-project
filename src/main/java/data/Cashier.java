@@ -1,9 +1,10 @@
 package data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class Cashier {
+public class Cashier implements Serializable {
     private final UUID uuid;
     private String name;
     private BigDecimal salary;
