@@ -35,7 +35,7 @@ public class StockServiceImpl implements StockService {
             return sellingPrice.subtract(discount);
         }
         else return sellingPrice;
-        //TO DO: da ne zabravq v CashRegisterService predi da vikna tazi funkciq da proverq isStockExpired() poneje stoki s iztekal srok ne se prodavat
+        ///TO DO: da ne zabravq v CashRegisterService predi da vikna tazi funkciq da proverq isStockExpired() poneje stoki s iztekal srok ne se prodavat
     }
 
 }

@@ -1,6 +1,8 @@
 package data;
 
-public class CashRegister {
+import java.io.Serializable;
+
+public class CashRegister implements Serializable {
 
     private int cashRegisterNumber;
     private Cashier workingCashier;
