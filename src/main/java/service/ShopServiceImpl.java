@@ -27,7 +27,7 @@ public class ShopServiceImpl implements ShopService {
             else {
                 BigDecimal missingQuantity = quantityToSell.subtract(availableQuantity);
                 throw new NotEnoughQuantityException(stock, missingQuantity);
-                //To do: primerno ako ima 15 vodi v magazina, a iskam da si kupq 20 vodi -> dali da prodam tezi 15 ili da ne gi prodam? Prompt ot usera v consolata
+                ///To do: primerno ako ima 15 vodi v magazina, a iskam da si kupq 20 vodi -> dali da prodam tezi 15 ili da ne gi prodam? Prompt ot usera v consolata
             }
         }
         else {

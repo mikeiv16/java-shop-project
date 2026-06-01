@@ -7,7 +7,7 @@ import java.io.*;
 public class ReceiptServiceImpl implements ReceiptService{
     @Override
     public void saveReceiptFile(Receipt receipt) throws IOException {
-        String fileName = "receipts/txt/receipt_" + receipt.getShopName() + "_" + receipt.getNumber() + ".txt";
+        String fileName = "src/main/java/receipts/txt/receipt_" + receipt.getShopName() + "_" + receipt.getNumber() + ".txt";
 
         try (FileWriter fw = new FileWriter(fileName)){
             fw.write(receipt.toString());
@@ -17,13 +17,19 @@ public class ReceiptServiceImpl implements ReceiptService{
     }
 
     @Override
-    public void readReceiptFile(String file) throws FileNotFoundException {
-        try(FileReader fr = new FileReader(file)){
-            int chr;
-            while((chr = fr.read()) != -1){
-                System.out.print((char)chr);
+    public void readReceiptFile(String file) {
+//        try(FileReader fr = new FileReader(file)){
+//            int chr;
+//            while((chr = fr.read()) != -1){
+//                System.out.print((char)chr);
+//            }
+//            System.out.println();
+//        }
+        try(BufferedReader reader = new BufferedReader(new FileReader(file))){
+            String line;
+            while((line = reader.readLine()) != null){
+                System.out.println(line);
             }
-            System.out.println();
         }
         catch (IOException ex){
             System.out.println("Error while reading the receipt file: " + ex);
@@ -32,7 +38,7 @@ public class ReceiptServiceImpl implements ReceiptService{
 
     @Override
     public void serializeReceipt(Receipt receipt) throws IOException {
-        String filePath = "receipts/ser/receipt_" + receipt.getShopName() + "_" + receipt.getNumber() + ".ser";
+        String filePath = "src/main/java/receipts/ser/receipt_" + receipt.getShopName() + "_" + receipt.getNumber() + ".ser";
         try(
                 FileOutputStream fos = new FileOutputStream(filePath);
                 ObjectOutputStream outputStream = new ObjectOutputStream(fos);

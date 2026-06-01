@@ -43,11 +43,10 @@ public class CashRegisterServiceImpl implements CashRegisterService {
             sellingPrice = stockService.discountSellingPriceWhenExpiring(st, shop.getExpirationThreshold(), shop.getExpirationDiscountPercentage(), sellingPrice);
             finalPrices.put(st, sellingPrice);
             totalSum = totalSum.add(sellingPrice.multiply(quantityToBuy));
-            //Maybe TO DO: v kasovata belejka da pishe ako stoka e namalena zaradi nablijavasht expiration
+            //Budeshta realizaciq: v kasovata belejka da pishe ako stoka e namalena zaradi nablijavasht expiration
         }
 
         if(givenMoneyFromCustomer.compareTo(totalSum) >= 0){
-            //successful purchase
             BigDecimal change = givenMoneyFromCustomer.subtract(totalSum);
 
             //namalqvane na stokata ot sklada na magazina:
