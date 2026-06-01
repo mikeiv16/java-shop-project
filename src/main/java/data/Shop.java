@@ -12,13 +12,14 @@ public class Shop {
     private List<CashRegister> cashRegisters;
     private final UUID uuid;
     private String name;
-    private List<String> receipts;
+    private List<Receipt> receipts;
     private Map<Stock, BigDecimal> stocks; //sudurja stoki i kolichestvoto im
     private Map<Category, BigDecimal> priceIncreasesByCategory; //nadcenka po kategoriq, primerno FOOD: 10%; NONFOOD: 5%
     private int expirationThreshold;
     private BigDecimal expirationDiscountPercentage;
+    private BigDecimal extraExpenses; //dopulnitelni razhodi po magazina (smetki, naem, etc)
 
-    public Shop(List<Cashier> cashiers, List<CashRegister> cashRegisters, String name, List<String> receipts, Map<Stock, BigDecimal> stocks, Map<Category, BigDecimal> priceIncreasesByCategory, int expirationThreshold, BigDecimal expirationDiscountPercentage) {
+    public Shop(List<Cashier> cashiers, List<CashRegister> cashRegisters, String name, List<Receipt> receipts, Map<Stock, BigDecimal> stocks, Map<Category, BigDecimal> priceIncreasesByCategory, int expirationThreshold, BigDecimal expirationDiscountPercentage, BigDecimal extraExpenses) {
         this.uuid = UUID.randomUUID();
         this.cashiers = cashiers;
         this.cashRegisters = cashRegisters;
@@ -28,6 +29,7 @@ public class Shop {
         this.priceIncreasesByCategory = priceIncreasesByCategory;
         this.expirationThreshold = expirationThreshold;
         this.expirationDiscountPercentage = expirationDiscountPercentage;
+        this.extraExpenses = extraExpenses;
     }
 
     public List<Cashier> getCashiers() {
@@ -54,11 +56,11 @@ public class Shop {
         this.name = name;
     }
 
-    public List<String> getReceipts() {
+    public List<Receipt> getReceipts() {
         return receipts;
     }
 
-    public void setReceipts(List<String> receipts) {
+    public void setReceipts(List<Receipt> receipts) {
         this.receipts = receipts;
     }
 
@@ -92,6 +94,14 @@ public class Shop {
 
     public void setExpirationDiscountPercentage(BigDecimal expirationDiscountPercentage) {
         this.expirationDiscountPercentage = expirationDiscountPercentage;
+    }
+
+    public BigDecimal getExtraExpenses() {
+        return extraExpenses;
+    }
+
+    public void setExtraExpenses(BigDecimal extraExpenses) {
+        this.extraExpenses = extraExpenses;
     }
 
     @Override
